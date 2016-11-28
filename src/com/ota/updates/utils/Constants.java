@@ -82,4 +82,7 @@ public interface Constants {
 
 	//Notification
 	public static final int NOTIFICATION_ID 							= 101;
+
+	// Permissions
+	public static final int WRITE_PERMISSION							= 1;
 }

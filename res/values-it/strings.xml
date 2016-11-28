@@ -37,4 +37,8 @@
     <string name="settings">Impostazioni</string>
     <string name="done">Fatto</string>
 
+    <!-- Write storage permission denied -->
+    <string name="write_perm_denied_message">L\'autorizzazione all\'archiviazione dei dati è richiesta per scrivere in memoria i dati scaricati da quest\'app.\n\nPer favore concedila.</string>
+    <string name="write_perm_denied_title">Autorizzazione negata</string>
+
 </resources>

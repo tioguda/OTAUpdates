@@ -33,6 +33,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -115,6 +116,76 @@ public class MainActivity extends Activity implements Constants{
 			actionBar.setDisplayShowCustomEnabled(true);
 		}
 		
+		// In this case we're requesting write permission before anything else.
+		if (!Utils.writePermissionGranted(mContext)) {
+			Utils.requestWritePermission(this);
+			return;
+		}
+		
+		endInitialization();
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		this.registerReceiver(mReceiver, new IntentFilter(MANIFEST_LOADED));
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		this.unregisterReceiver(mReceiver);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		if (isLollipop)
+			getMenuInflater().inflate(R.menu.ota_menu_main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		if (isLollipop)
+			switch (item.getItemId()) {
+			case R.id.menu_changelog:
+				openChangelog(null);
+				return true;
+			case R.id.menu_settings:
+				openSettings(null);
+				return true;
+			}
+			return false;
+	}
+	
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+		switch (requestCode) {
+			case WRITE_PERMISSION:
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					// Write allowed, end app's initialization.
+					endInitialization();
+				} else {
+					// Write denied, show warning dialog.
+					Builder adb = new Builder(mContext);
+					adb.setCancelable(false)
+							.setTitle(R.string.write_perm_denied_title)
+							.setMessage(R.string.write_perm_denied_message)
+							.setPositiveButton(R.string.ok, new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface di, int which) {
+							Utils.requestWritePermission(MainActivity.this);
+							di.dismiss();
+						}
+					}).show();
+				}
+				break;
+		}
+	}
+	
+	private void endInitialization() {
 		boolean firstRun = Preferences.getFirstRun(mContext);				
 		if(firstRun) {
 			Preferences.setFirstRun(mContext, false);
@@ -164,41 +235,6 @@ public class MainActivity extends Activity implements Constants{
 		updateRomInformation();
 		updateRomUpdateLayouts();
 		updateWebsiteLayout();
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		this.registerReceiver(mReceiver, new IntentFilter(MANIFEST_LOADED));
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-		this.unregisterReceiver(mReceiver);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		if (isLollipop)
-			getMenuInflater().inflate(R.menu.ota_menu_main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
-		if (isLollipop)
-			switch (item.getItemId()) {
-			case R.id.menu_changelog:
-				openChangelog(null);
-				return true;
-			case R.id.menu_settings:
-				openSettings(null);
-				return true;
-			}
-			return false;
 	}
 
 	private void createDialogs() {

@@ -23,6 +23,8 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -34,9 +36,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.ota.updates.R;
@@ -217,6 +221,10 @@ public class Utils implements Constants{
 		return Build.VERSION.SDK_INT >= 21;
 	}
 
+	private static boolean isMarshmallow() {
+		return Build.VERSION.SDK_INT >= 23;
+	}
+
 	private static boolean versionBiggerThan(String current, String manifest) {
 		// returns true if current > manifest, false otherwise
 		if (current.length() > manifest.length()) {
@@ -313,5 +321,20 @@ public class Utils implements Constants{
 	
 	public static String getRemovableMediaPath() {
 		return Tools.shell("echo ${SECONDARY_STORAGE%%:*}", false);		
+	}
+
+	public static void requestWritePermission(Activity activity) {
+		if (isMarshmallow()) {
+			ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_PERMISSION);
+		}
+	}
+
+	public static boolean writePermissionGranted(Context context) {
+		if (isMarshmallow()) {
+			return ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+					PackageManager.PERMISSION_GRANTED;
+		}
+		// OS is older than MM, skip permission check by returning "true".
+		return true;
 	}
 }
