@@ -19,18 +19,15 @@ ifndef TARGET_ARCH_ABI
 TARGET_ARCH_ABI := armeabi-v7a
 endif
 
-# Cardview Dir
-cardview_dir := ../../../frameworks/support/v7/cardview
-
 src_dirs := src src_bypass
-res_dirs := res $(chips_dir) $(cardview_dir)/res
 
 LOCAL_SRC_FILES := $(call all-java-files-under, $(src_dirs))
-LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dirs))
+LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res) \
+	frameworks/support/v7/cardview/res
 
 LOCAL_AAPT_FLAGS := \
 	--auto-add-overlay \
-	--extra-packages android.support.v7.cardview
+	--extra-packages android.support.v7.cardview 
 
 LOCAL_PACKAGE_NAME := OTAUpdates
 
