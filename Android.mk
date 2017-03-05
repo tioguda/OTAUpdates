@@ -1,6 +1,6 @@
 #	Copyright (C) 2015 Matt Booth (Kryten2k35).
 # 
-# 	Licensed under the Attribution-NonCommercial-ShareAlike 4.0 International 
+# 	Licensed under the Attribution-NonCommercial-ShareAlike 4.0 International
 # 	(the "License") you may not use this file except in compliance with the License.
 # 	You may obtain a copy of the License at
 # 
@@ -27,7 +27,8 @@ LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res) \
 
 LOCAL_AAPT_FLAGS := \
 	--auto-add-overlay \
-	--extra-packages android.support.v7.cardview 
+	--extra-packages android.support.v7.cardview \
+	--extra-packages android.support.v4
 
 LOCAL_PACKAGE_NAME := OTAUpdates
 
@@ -50,8 +51,7 @@ include $(BUILD_PACKAGE)
 
 include $(CLEAR_VARS)
 
-LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := \
-libs/RootTools.jar \
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := libs/RootTools.jar
 
 include $(BUILD_MULTI_PREBUILT)
 
