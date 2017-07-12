@@ -276,7 +276,7 @@ public class AddonActivity extends Activity implements Constants {
 			desc.setMovementMethod(LinkMovementMethod.getInstance());
 
 			String UpdatedOnStr = convertView.getResources().getString(R.string.addons_updated_on);
-			String date = item.getPublishedAt();
+			String date = item.getUpdatedOn();
 
 			Locale locale = Locale.getDefault();
 			DateFormat fromDate = new SimpleDateFormat("yyyy-MM-dd", locale);
