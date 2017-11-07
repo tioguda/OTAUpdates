@@ -12,7 +12,8 @@
  	distributed under the License is distributed on an "AS IS" BASIS,
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
-	limitations under the License.
+	limitations under the License.
+
 -->
 <resources>
 
@@ -21,11 +22,14 @@
     <string name="main_update_filename">Nome do arquivo</string>
     <string name="main_update_progress">Progresso da atualização</string>
     <string name="main_website">Website</string>
+    <string name="main_website_summary">Visite o site/forum da ROM</string>
     <string name="main_donate">Doar</string>
     <string name="main_donate_summary">Doar para o desenvolvedor da ROM</string>
     <string name="main_tap_to_download">Toque para baixar</string>
     <string name="main_download_completed_details">Download completo. Toque para ver detalhes</string>
     <string name="main_last_checked">Ultima verificação de atualização em</string>
+    <string name="main_addon">Adições</string>
+    <string name="main_addon_summary">Navegue e baixe arquivos adicionais para esta ROM</string>
 
     <!-- ROM Information -->
     <string name="main_rom_information">Informação da ROM</string>

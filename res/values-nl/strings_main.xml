@@ -12,7 +12,8 @@
  	distributed under the License is distributed on an "AS IS" BASIS,
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
-	limitations under the License.
+	limitations under the License.
+
 -->
 <resources>
 
@@ -21,11 +22,14 @@
     <string name="main_update_filename">Filenaam</string>
     <string name="main_update_progress">Update Voortgang</string>
     <string name="main_website">Website</string>
+    <string name="main_website_summary">Bezoek de Rom site/forum</string>
     <string name="main_donate">Doneer</string>
     <string name="main_donate_summary">Doneer aan de ROM ontwikkelaar</string>
     <string name="main_tap_to_download">Selecteer om te downloaden</string>
     <string name="main_download_completed_details">Download compleet. Selecteer voor details</string>
     <string name="main_last_checked">Laatst gecontroleerd op update</string>
+    <string name="main_addon">Toevoegingen</string>
+    <string name="main_addon_summary">Blader en download extra bestanden voor dit ROM</string>
 
     <!-- ROM Information -->
     <string name="main_rom_information">ROM informatie</string>

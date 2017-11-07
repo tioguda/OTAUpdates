@@ -21,11 +21,14 @@
     <string name="main_update_filename">Dateiname</string>
     <string name="main_update_progress">Aktualisierungsfortschritt</string>
     <string name="main_website">Website</string>
+    <string name="main_website_summary">Besuchen Sie die Seite/das Forum von Rom</string>
     <string name="main_donate">Spenden</string>
     <string name="main_donate_summary">Spende an den ROM Entwickler</string>
     <string name="main_tap_to_download">Antippen um Download zu starten</string>
     <string name="main_download_completed_details">Download abgeschlossen. Antippen für weitere Details</string>
     <string name="main_last_checked">Letzte Überprüfung am</string>
+    <string name="main_addon">Zusätze</string>
+    <string name="main_addon_summary">Durchsuchen und laden Sie zusätzliche Dateien für dieses ROM</string>
 
     <!-- ROM Information -->
     <string name="main_rom_information">ROM-Informationen</string>
