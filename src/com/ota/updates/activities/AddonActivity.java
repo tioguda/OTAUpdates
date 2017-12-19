@@ -293,7 +293,9 @@ public class AddonActivity extends Activity implements Constants {
 			filesize.setText(Utils.formatDataFromBytes(item.getFilesize()));
 			final File file = new File(SD_CARD
 					+ File.separator
-					+ OTA_DOWNLOAD_DIR, item.getTitle() + ".zip");
+					+ OTA_DOWNLOAD_DIR
+					+ File.separator
+					+ INSTALL_AFTER_FLASH_DIR, item.getTitle() + ".zip");
 
 			if (DEBUGGING) {
 				Log.d(TAG, "file path " + file.getAbsolutePath());
