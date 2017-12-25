@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2015 Matt Booth (Kryten2k35).
  *
- * Licensed under the Attribution-NonCommercial-ShareAlike 4.0 International 
+ * Licensed under the Attribution-NonCommercial-ShareAlike 4.0 International
  * (the "License") you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -36,7 +36,7 @@ public class GenerateRecoveryScript extends AsyncTask<Void, String, Boolean> imp
 	private ProgressDialog mLoadingDialog;
 	private StringBuilder mScript = new StringBuilder();
 	private static String SCRIPT_FILE = "/cache/recovery/openrecoveryscript";
-	private static String NEW_LINE = "\n";   
+	private static String NEW_LINE = "\n";
 	private String mFilename;;
 	private String mScriptOutput;
 
@@ -63,53 +63,51 @@ public class GenerateRecoveryScript extends AsyncTask<Void, String, Boolean> imp
 			mScript.append("wipe dalvik" + NEW_LINE);
 		}
 
-		mScript.append("install " + "/sdcard" 
-				+ File.separator 
-				+ OTA_DOWNLOAD_DIR 
-				+ File.separator 
-				+ mFilename 
+		mScript.append("install " + "/sdcard"
+				+ File.separator
+				+ OTA_DOWNLOAD_DIR
+				+ File.separator
+				+ mFilename
 				+ NEW_LINE);
 
 		File installAfterFlashDir = new File("/sdcard"
-				+ File.separator 
-				+ OTA_DOWNLOAD_DIR 
-				+ File.separator 
+				+ File.separator
+				+ OTA_DOWNLOAD_DIR
+				+ File.separator
 				+ INSTALL_AFTER_FLASH_DIR);
-		
+
 		File[] filesArr = installAfterFlashDir.listFiles();
 		if(filesArr != null && filesArr.length > 0) {
 			for(int i = 0; i < filesArr.length; i++) {
 				mScript.append(NEW_LINE
-						+ "install " 
+						+ "install "
 						+ "/sdcard"
 						+ File.separator
-						+ OTA_DOWNLOAD_DIR 
-						+ File.separator 
-						+ INSTALL_AFTER_FLASH_DIR 
-						+ File.separator 
+						+ OTA_DOWNLOAD_DIR
+						+ File.separator
+						+ INSTALL_AFTER_FLASH_DIR
+						+ File.separator
 						+ filesArr[i].getName());
 				if(DEBUGGING)
-					Log.d(TAG, "install " 
+					Log.d(TAG, "install "
 							+ "/sdcard"
 							+ File.separator
-							+ OTA_DOWNLOAD_DIR 
-							+ File.separator 
-							+ INSTALL_AFTER_FLASH_DIR 
-							+ File.separator 
+							+ OTA_DOWNLOAD_DIR
+							+ File.separator
+							+ INSTALL_AFTER_FLASH_DIR
+							+ File.separator
 							+ filesArr[i].getName());
 			}
 		}
 
 		if (Preferences.getDeleteAfterInstall(mContext)) {
 			mScript.append(NEW_LINE
-					+ "cmd rm -rf " 
+					+ "cmd rm -rf "
 					+ "/sdcard"
 					+ File.separator
-					+ OTA_DOWNLOAD_DIR 
-					+ File.separator 
-					+ INSTALL_AFTER_FLASH_DIR 
-					+ File.separator 
-					+ mFilename 
+					+ OTA_DOWNLOAD_DIR
+					+ File.separator
+					+ mFilename
 					+ NEW_LINE);
 		}
 
