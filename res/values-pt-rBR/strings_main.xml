@@ -27,6 +27,7 @@
     <string name="main_donate_summary">Doar para o desenvolvedor da ROM</string>
     <string name="main_tap_to_download">Toque para baixar</string>
     <string name="main_download_completed_details">Download completo. Toque para ver detalhes</string>
+    <string name="main_tap_to_view_progress">Toque para visualizar o progresso</string>
     <string name="main_last_checked">Ultima verificação de atualização em</string>
     <string name="main_addon">Adições</string>
     <string name="main_addon_summary">Navegue e baixe arquivos adicionais para esta ROM</string>

@@ -12,7 +12,8 @@
  	distributed under the License is distributed on an "AS IS" BASIS,
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
-	limitations under the License.
+	limitations under the License.
+
 -->
 <resources>
 
@@ -52,5 +53,10 @@
     <string name="notifications_sound">Som</string>
     <string name="notifications_vibrate">Vibrar</string>
     <string name="silent_ringtone">Silencioso</string>
+    <string name="notification_ignore_release_title">Ignorar lançamento</string>
+    <string name="notification_ignoring_release">Atualmente ignorando a versão: </string>
+    <string name="notification_not_ignoring_release">Você não está ignorando um lançamento</string>
+    <string name="storage">Armazenamento</string>
+    <string name="storage_location">Local de armazenamento</string>
 
 </resources>
