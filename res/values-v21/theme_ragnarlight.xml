@@ -32,6 +32,7 @@
         <item name="separator">@color/separator_light</item>
         <item name="backgroundRippleSelector">@drawable/ripple_selector_light</item>
         <item name="proRibbon">@drawable/pro_ribbon_light</item>
+        <item name="validus">@drawable/validus_logo_light</item>
 
         <!-- Main theme colors -->
         <item name="android:colorPrimary">@color/material_primary</item>

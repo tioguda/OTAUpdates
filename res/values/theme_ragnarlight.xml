@@ -40,6 +40,7 @@
         <item name="textColorPrimary">@color/black</item>
         <item name="textColorSecondary">@color/dark_grey</item>
         <item name="proRibbon">@drawable/pro_ribbon_light</item>
+        <item name="validus">@drawable/validus_logo_light</item>
     </style>
 
     <style name="ActionBar.Solid.RagnarLight" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
